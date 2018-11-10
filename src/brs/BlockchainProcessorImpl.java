@@ -838,8 +838,12 @@ public final class BlockchainProcessorImpl implements BlockchainProcessor {
           digest.digest(), Genesis.getCreatorPublicKey(), new byte[32],
           Genesis.getGenesisBlockSignature(), null, transactions, 0, byteATs, -1);
       blockService.setPrevious(genesisBlock, null);
+      logger.info("Gensis block = "+Genesis.GENESIS_BLOCK_ID);
       addBlock(genesisBlock);
+      
     } catch (BurstException.ValidationException e) {
+        //logger.info("Gensis block = "+genesisBlock);
+
       logger.info(e.getMessage());
       throw new RuntimeException(e.toString(), e);
     }

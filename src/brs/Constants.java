@@ -18,8 +18,9 @@ public final class Constants {
   public static final int BURST_SUBSCRIPTION_MAX_FREQ = 31536000;
 
   public static final int BLOCK_HEADER_LENGTH = 232;
-
-  public static final long MAX_BALANCE_BURST = 2158812800L;
+//TOTAL SUPPLY
+  //public static final long MAX_BALANCE_BURST = 2158812800L;
+  public static final long MAX_BALANCE_BURST = 2100000000L;
   
   public static final long FEE_QUANT =    735000;
   public static final long ONE_BURST = 100000000;

@@ -170,8 +170,12 @@ public class BlockServiceImpl implements BlockService {
       return 0;
     }
     int month = block.getHeight() / 10800;
-    return BigInteger.valueOf(10000).multiply(BigInteger.valueOf(95).pow(month))
-        .divide(BigInteger.valueOf(100).pow(month)).longValue() * Constants.ONE_BURST;
+    //return BigInteger.valueOf(10000).multiply(BigInteger.valueOf(95).pow(month))
+       // .divide(BigInteger.valueOf(100).pow(month)).longValue() * Constants.ONE_BURST;
+    //intial block reward and block decreases reward
+    
+    return BigInteger.valueOf(2000).multiply(BigInteger.valueOf(92).pow(month))
+            .divide(BigInteger.valueOf(100).pow(month)).longValue() * Constants.ONE_BURST;
   }
 
   @Override
@@ -250,7 +254,8 @@ public class BlockServiceImpl implements BlockService {
             .divide(BigInteger.valueOf(blockCounter + 1L));
       } while (blockCounter < 24);
       long difTime = (long) block.getTimestamp() - itBlock.getTimestamp();
-      long targetTimespan = 24L * 4 * 60;
+      //long targetTimespan = 24L * 4 * 60;
+      long targetTimespan = 24L * 3 * 60;
 
       if (difTime < targetTimespan / 2) {
         difTime = targetTimespan / 2;

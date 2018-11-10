@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.SortedMap;
@@ -206,7 +207,21 @@ public class Block {
     this.height = height;
   }
 
-  public long getId() {
+  @Override
+public String toString() {
+	return "Block [version=" + version + ", timestamp=" + timestamp + ", previousBlockId=" + previousBlockId
+			+ ", generatorPublicKey=" + Arrays.toString(generatorPublicKey) + ", previousBlockHash="
+			+ Arrays.toString(previousBlockHash) + ", totalAmountNQT=" + totalAmountNQT + ", totalFeeNQT=" + totalFeeNQT
+			+ ", payloadLength=" + payloadLength + ", generationSignature=" + Arrays.toString(generationSignature)
+			+ ", payloadHash=" + Arrays.toString(payloadHash) + ", blockTransactions=" + blockTransactions
+			+ ", blockSignature=" + Arrays.toString(blockSignature) + ", cumulativeDifficulty=" + cumulativeDifficulty
+			+ ", baseTarget=" + baseTarget + ", nextBlockId=" + nextBlockId + ", height=" + height + ", id=" + id
+			+ ", stringId=" + stringId + ", generatorId=" + generatorId + ", nonce=" + nonce + ", pocTime=" + pocTime
+			+ ", blockATs=" + Arrays.toString(blockATs) + ", downloadedFrom=" + downloadedFrom + ", byteLength="
+			+ byteLength + "]";
+}
+
+public long getId() {
     if (id == 0) {
       if (blockSignature == null) {
         throw new IllegalStateException("Block is not signed yet");
